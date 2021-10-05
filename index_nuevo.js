@@ -1,4 +1,6 @@
-const express =  require('express');
+require('dotenv').config();
+
+const express = require('express');
 const mongodb = require('mongodb')
 const logger =  require('morgan');
 const bodyParser =  require('body-parser');
@@ -6,7 +8,8 @@ const errorhandler =  require('errorhandler');
 
 
 //const url = 'mongodb://localhost:27017/';
-const url = 'mongodb+srv://manuel:12345@702.s3tgn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+//const url = 'mongodb+srv://manuel:12345@702.s3tgn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const url = process.env.MONGODB_URL
 let app  =  express();
 app.use(bodyParser.json());
 app.use(logger('dev'));
